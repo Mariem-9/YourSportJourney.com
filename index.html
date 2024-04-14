@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourSportJourney.com</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0948b481c7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>YourSportJourney.com</h1>
+    </header>
+    <main>
+        <h1>Day1</h1>
+    <div class="gallery-warp">
+        <i class="fa-solid fa-angle-left" id="left"></i>
+        <div class="gallery">
+            <div><span><video controls src="1/359364659_981206266260036_8097331219085074488_n.mp4"></video></span></div>
+            <div><span><video controls src="1/384416134_862385558794542_7255703482485165048_n.mp4"></video></span></div>
+            <div><span><video controls src="1/Snapsave.app_330449686_878696943471730_3404784162283605175_n.mp4"></video></span></div>
+        </div>
+        <i class="fa-solid fa-angle-right"id="right"></i>
+    </div>
+
+    <h1>Day2</h1>
+    <div class="gallery-warp">
+        <i class="fa-solid fa-angle-left" id="left"></i>
+        <div class="gallery">
+            <div><span><video controls src="2/792.fitness.mp4"></video></span></div>
+            <div><span><video controls src="2/356612021_599717858678267_2531602664060291965_n.mp4"></video></span></div>
+            <div><span><video controls src="2/352669199_586895393561248_3193254820355496579_n.mp4"></video></span></div>
+            <div><span><video controls src="2/355893611_259560010000963_7906880964968690859_n.mp4"></video></span></div>
+        </div>
+        <i class="fa-solid fa-angle-right"id="right"></i>
+    </div>
+    <h1>Day3</h1>
+    <div class="gallery-warp">
+        <i class="fa-solid fa-angle-left" id="left"></i>
+        <div class="gallery">
+            <div><span><video controls src="3/356880250_483832543943091_6935597217744995619_n.mp4"></video></span></div>
+            <div><span><video controls src="3/910.mp4"></video></span></div>
+            <div><span><video controls src="3/349067415_210498188463191_6535466228215846042_n.mp4"></video></span></div> 
+        </div>
+        <i class="fa-solid fa-angle-right"id="right"></i>
+    </div>
+    <h1>Day4</h1>
+    <div class="gallery-warp">
+        <i class="fa-solid fa-angle-left" id="left"></i>
+        <div class="gallery">
+            <div><span><video controls src="4/356621546_136931069416766_1710626633259935818_n.mp4"></video></span></div>
+            <div><span><video controls src="4/362197190_1959334077774065_1512932167351701823_n.mp4"></video></span></div>
+            <div><span><video controls src="4/361295289_1007737556906066_3935912256879681260_n.mp4"></video></span></div> 
+        </div>
+        <i class="fa-solid fa-angle-right"id="right"></i>
+    </div>
+    <h1>Day5</h1>
+    <div class="gallery-warp">
+        <i class="fa-solid fa-angle-left" id="left"></i>
+        <div class="gallery">
+            <div><span><video controls src="5/363044944_1028196131852324_5820796515045023995_n.mp4"></video></span></div>
+            <div><span><video controls src="5/366295936_858233738478358_9221424964009254003_n.mp4"></video></span></div>
+            <div><span><video controls src="5/Snapsave.app_318111819_504245711685675_3473513663090923665_n.mp4"></video></span></div>
+        </div>
+        <i class="fa-solid fa-angle-right"id="right"></i>
+    </div>
+    <h1>Day6</h1>
+    <div class="gallery-warp">
+        <i class="fa-solid fa-angle-left" id="left"></i>
+        <div class="gallery">
+            <div><span><video controls src="6/360101361_814772626682684_4516072176183899636_n.mp4"></video></span></div>
+            <div><span><video controls src="6/361891697_964839251300376_3464465190455328057_n.mp4"></video></span></div>
+            <div><span><video controls src="6/Snapsave.app_330156792_589903202988538_3022324527801951992_n.mp4"></video></span></div>
+        </div>
+        <i class="fa-solid fa-angle-right"id="right"></i>
+    </div>
+
+
+    
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 YourSportJourney.com</p>
+    </footer>
+    <script>
+        let scrollcontainer = document.querySelector(".gallery");
+        let right = document.getElementById("right");
+        let left = document.getElementById("left");
+        scrollcontainer.addEventListener("wheel",(evt)=>{
+            evt.preventDefault();
+            scrollcontainer.scrollLeft += evt.deltaY;
+        });
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") {
+            scrollcontainer.scrollLeft -= 100;
+            if (scrollcontainer.scrollLeft <= 0) {
+            scrollcontainer.scrollLeft = scrollcontainer.scrollWidth;
+        }
+        }else if (event.key === "ArrowRight") {
+        scrollcontainer.scrollLeft += 100;
+        if (scrollcontainer.scrollLeft >= scrollcontainer.scrollWidth - scrollcontainer.clientWidth) {
+            scrollcontainer.scrollLeft = 0;
+        }
+     }
+        });
+        left.addEventListener("click", ()=>{
+            scrollcontainer.scrollLeft -= 300;
+            if (scrollcontainer.scrollLeft <= 0) {
+            scrollcontainer.scrollLeft = scrollcontainer.scrollWidth;
+        }
+        });
+        right.addEventListener("click", ()=>{
+            scrollcontainer.scrollLeft += 300;
+            if (scrollcontainer.scrollLeft >= scrollcontainer.scrollWidth - scrollcontainer.clientWidth) {
+            scrollcontainer.scrollLeft = 0;
+        }
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            const videos = document.querySelectorAll(".gallery video");
+             // Add click event listener to each video
+             videos.forEach(video => {
+                video.addEventListener("click", function() {
+                    // Toggle the 'enlarged' class on click
+                    this.classList.toggle("enlarged");});
+            });
+        });
+            
+        
+
+    </script>
+</body>
+</html>
